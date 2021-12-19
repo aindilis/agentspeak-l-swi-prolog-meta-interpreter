@@ -1,0 +1,199 @@
+%% Most of this code in this file (save for some small additions and
+%% tweaks) was extracted from: Dimitriadis Dimitrios' MSc Thesis here:
+
+%% https://dspace.lib.uom.gr/bitstream/2159/24611/1/DimitriadisDimitriosMSc2019.pdf
+
+%% %% Test Case 1
+%% %% Beliefs
+%% time(morning).
+%% day(friday).
+%% %% Plans
+
+%% +!test1 :: true <-
+%% 	!message(friday);
+%% 	!testAnotPlan#[source(agent13)];
+%% 	?is_limit(100)#[source(agent21)].
+%% +!message(D) :: time(morning) & day(D) <-
+%% 	write('test 3 -ok. (Checking Plan Conditions)');nl.
+%% +!testAnotPlan#[source(agent13)] :: true <-
+%% 	write("test 24 -ok. (Annotated Plan asked to be achieved)");nl.
+%% +?is_limit(L)#[source(agent21)] :: L>10 <-
+%% 	write("test 32 -ok. (Solving a test goal, by executing an annotated test plan) "),nl.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% ?- load_agent('tester.pl').
+%% true.
+%% ?- test 3 -ok. (Checking Plan Conditions)
+%% test 24 -ok. (Annotated Plan asked to be achieved)
+%% test 32 -ok. (Solving a test goal, by executing an annotated test plan)
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% %% Test Case 2
+%% %% Beliefs
+%% salary(10000,captain).
+%% salary(15000,major).
+%% salary(18000,colonel).
+%% %% Rules
+%% lowest_salary(Salary,Person) :-
+%% 	salary(Salary,Person) &
+%% 	not ( (salary(S2,_) & S2 < Salary) ) .
+%% %% Plans
+%% +!evaluate_salary :: true <-
+%% 	?lowest_salary(S,P);
+%% 	S=10000;
+%% 	write("test 28 ok. (Solving a test goal following a
+%% 	mental rule) "),nl.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% ?- load_agent('tester.pl').
+%% true.
+%% ?- test 28 ok. (Solving a test goal following a mental rule) 
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% %% Test Case 3
+%% %% Beliefs
+%% %% Plans
+%% +!test :: true <-
+%% 	 ^^separateIntention.
+%% 	+!separateIntention :: true <-
+%% 	write("test 33 ok. (Goal pursued as a separate
+%% 	intention)"),nl.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% ?- load_agent('tester.pl').
+%% true.
+%% ?- test 33 ok. (Goal pursued as a separate intention)
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% %% Test Case 4
+%% %% Beliefs
+%% obstacle(back)#[source(agent1)].
+%% obstacle(back)#[source(agent99)].
+%% %% Plans
+%% +!test :: true <-
+%% +obstacle(back)#[source(agent100)];
+%% 	write("test 16 -ok. (Add directly an annotated
+%%         belief)");nl;
+%% 	-obstacle(back)#[source(agent99)];
+%% 	write("test 19 -ok. (Remove directly an annotated
+%% 	belief)");nl.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% load_agent('tester.pl').
+%% true.
+%% ?- test 16 -ok. (Add directly an annotated belief)
+%% test 19 -ok. (Remove directly an annotated belief)
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% %% Test Case 5
+%% %% Beliefs
+%% bad(mood)#[source(agentB)].
+%% %% Plans
+%% +!test :: true <-
+%% 	+good(day)#[source(agentA)];
+%% 	-bad(mood)#[source(agentB)].
+%% +good(day)#[source(agentA)] :: true <-
+%% 	write('test 21 -ok. (Plan triggered by an annotated
+%% 	belief addition)');nl.
+%% -bad(mood)#[source(agentB)] :: true <-
+%% 	write('test 23 -ok. (Plan triggered by an annotated
+%% 	belief deletion)');nl.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% load_agent('tester.pl').
+%% true.
+%% ?- test 21 -ok. (Plan triggered by an annotated belief
+%% 		addition)
+%% test 23 -ok.  (Plan triggered by an annotated belief
+%% deletion)
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% ?- solve(1>2).
+%% false.
+%% ?- solve(3>2).
+%% true.
+%% ?- solve(write("Prolog")).
+%% Prolog
+%% true.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% %% Belief Addition Example add_belief.pl
+%% %% Beliefs
+%% temp(42).
+%% temp(54).
+%% %% Plans %%
+%% % plan triggered for every belief addition of the form temp()
+%% +temp(A) :: true <-
+%% 	write(['temperature', A , 'added']),nl.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%% ?- start_agent.
+%% true.
+%% ?- threads.
+%% % Thread  Status  Time  Stack use  allocated
+%% % -----------------------------------------------------
+%% % main_agent_thread  running  0.000  800  120,808
+%% true.
+%% ?- load_agent('add_belief.pl').
+%% true.
+%% ?- [temprature,42,added]
+%% [temprature,54,added]
+%% threads.
+%% % Thread  Status  Time  Stack use  allocated
+%% % -----------------------------------------------------
+%% % main_agent_thread  running  0.000  800  120,808
+%% %'iStack(add_belief(temp(54),[source(self)]),1558510406.096266)' true
+%% % true.
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%

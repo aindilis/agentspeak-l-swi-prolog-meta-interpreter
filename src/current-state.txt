@@ -1,0 +1,75 @@
+andrewdo@ai2:/var/lib/myfrdcsa/collaborative/git/agentspeak-meta-interpreter/src$ ./run.sh
+
+t/t1.pl
+test 3 -ok. (Checking Plan Conditions)
+test 24 -ok. (Annotated Plan asked to be achieved)
+test 32 -ok. (Solving a test goal, by executing an annotated test plan) 
+
+t/t2.pl
+test 28 -ok. (Solving a test goal following a mental rule) 
+
+t/t3.pl
+
+t/t4.pl
+test 16 -ok. (Add directly an annotated belief) 
+test 19 -ok. (Remove directly an annotated belief) 
+
+t/t5.pl
+test 21 -ok. (Plan triggered by an annotated belief addition)
+test 23 -ok. (Plan triggered by an annotated belief deletion)
+
+t/t6.pl
+test FH_A1 -ok. Annotated failure handling plan for error(non_applicable_plan)
+test FH_A2 -ok. Annotated failure handling plan for error(no_relevant_plan)
+test FH_A3 -ok. Non-annotated failure handling plan
+
+t/t7.pl
+Not accepted job. Too low wages.
+[Job ,doctor,provides a good salary, offering ,20000,per year.]
+[Job ,broker,provides the best salary, offering ,25000,per year.]
+
+t/t20.pl
+Cart Cleaned!
+Room Cleaned!
+Pantry Stocked!
+Locked Door!
+
+t/t22.pl
+[ asserted,
+  rule(lowest_salary(A,B),
+       salary(A,B) & not (salary(C,_) & C < A))
+]
+[asserted,salary(10000,captain)]
+[asserted,salary(15000,major)]
+[asserted,salary(13000,colonel)]
+[ asserted,
+  plan(+ ! evaluate_salary,
+       true,
+       ? lowest_salary(A,_) ; A = 10000 ; write("test 28 -ok. (Solving a test goal following a mental rule) ") ',' nl)
+]
+test 28 -ok. (Solving a test goal following a mental rule) 
+
+t/t23.pl
+[ asserted,
+  rule(lowest_salary(A,B),
+       salary(A,B) & not (salary(C,_) & C < A))
+]
+[asserted,salary(10000,captain)]
+[asserted,salary(15000,major)]
+[asserted,salary(13000,colonel)]
+[ asserted,
+  plan(+ ! evaluate_salary,
+       true,
+       ? lowest_salary(A,_) ; A = 10000 ; write("test 28 -ok. (Solving a test goal following a mental rule) ") ',' nl)
+]
+[ asserted,
+  plan(+ ! evaluate_salary,
+       true,
+       ? lowest_salary(A,_) ; A = 10000 ; write("test 28 -ok. (Solving a test goal following a mental rule) ") ',' nl)
+]
+test 28 -ok. (Solving a test goal following a mental rule) 
+
+t/t24.pl
+[asserted,plan(+!test,true,'.'print("hi"))]
+hi
+andrewdo@ai2:/var/lib/myfrdcsa/collaborative/git/agentspeak-meta-interpreter/src$ 

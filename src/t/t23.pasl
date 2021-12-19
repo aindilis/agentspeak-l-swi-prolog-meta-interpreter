@@ -1,0 +1,20 @@
+:- module('t23',[]).
+:- consult('state-exporter').
+
+salary(10000,captain). % #[source(self)].
+salary(15000,major). % #[source(self)].
+salary(13000,colonel). % #[source(self)].
+
+lowest_salary(Salary,Person) :-
+	salary(Salary,Person) &
+	not ( (salary(S2,_) & S2 < Salary) ).
+
++!evaluate_salary <-
+	?lowest_salary(S,_P);
+	S = 10000;
+	(   write("test 28 -ok. (Solving a test goal following a mental rule) "),nl).
+
++!evaluate_salary :: true <-
+	?lowest_salary(S,_P);
+	S = 10000;
+	(   write("test 28 -ok. (Solving a test goal following a mental rule) "),nl).
