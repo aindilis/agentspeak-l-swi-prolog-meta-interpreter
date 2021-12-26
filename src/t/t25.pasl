@@ -1,0 +1,14 @@
+:- module('t25',[]).
+:- consult('state-exporter').
+
+%% !print_fact(5).
+
++!print_fact(N) <- !fact(N,F);
+	.print(["Factorial of ", N, " is ", F]).
+
++!fact(0,1) <- true.
+
++!fact(N,F) :: N > 0
+	<- M is N-1;
+           !fact(M,F1);
+	   F is F1 * N.

@@ -611,8 +611,166 @@ look :-
 l :-
 	findall(plan(X,Y,Z),plan(X,Y,Z),A),print_term(A,[]),nl,look.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 print(X) :-
 	write(X),nl.
+
+%% abolish() :- 
+%% add_annot() :- 
+%% add_nested_source() :- 
+%% add_plan() :- 
+%% all_names() :- 
+%% asserta() :- 
+%% assertz() :- 
+%% at() :- 
+%% atom() :- 
+%% belief() :- 
+%% broadcast() :- 
+%% clone() :- 
+%% concat() :- 
+%% copy_term() :- 
+%% count() :- 
+%% create_agent() :- 
+%% current_intention() :- 
+%% date() :- 
+%% delete() :- 
+%% desire() :- 
+%% df_deregister() :- 
+%% df_register() :- 
+%% df_search() :- 
+%% df_subscribe() :- 
+%% difference() :- 
+%% done() :- 
+%% drop_all_desires() :- 
+%% drop_all_events() :- 
+%% drop_all_intentions() :- 
+%% drop_desire() :- 
+%% drop_event() :- 
+%% drop_future_intention() :- 
+%% drop_intention() :- 
+%% empty() :- 
+%% eval() :- 
+%% fail_goal() :- 
+%% fail() :- 
+%% findall() :- 
+%% foreach() :- 
+%% fork() :- 
+%% get_src_info() :- 
+%% ground() :- 
+%% if_then_else() :- 
+%% include() :- 
+%% intend() :- 
+%% intention() :- 
+%% internal_action() :- 
+%% intersection() :- 
+%% join() :- 
+%% kill_agent() :- 
+%% length() :- 
+%% list_files() :- 
+%% list() :- 
+%% list_plans() :- 
+%% list_rules() :- 
+%% literal() :- 
+%% log() :- 
+%% loop() :- 
+%% lower_case() :- 
+%% Manual() :- 
+%% map
+%% max() :- 
+%% member() :- 
+%% min() :- 
+%% my_name() :- 
+%% namespace() :- 
+%% nano_time() :- 
+%% nth() :- 
+%% number() :- 
+%% package-info() :- 
+%% perceive() :- 
+%% plan_label() :- 
+%% prefix() :- 
+%% printf() :- 
+%% print() :- 
+%% println() :- 
+%% puts() :- 
+%% queue
+%% random() :- 
+%% range() :- 
+%% relevant_plan() :- 
+%% relevant_plans() :- 
+%% relevant_rules() :- 
+%% remove_plan() :- 
+%% remove_source_annot() :- 
+%% rename_apart() :- 
+%% replace() :- 
+%% resume() :- 
+%% reverse() :- 
+%% save_agent() :- 
+%% send() :- 
+%% set
+%% setof() :- 
+%% set_random_seed() :- 
+%% shuffle() :- 
+%% signal() :- 
+%% sort() :- 
+%% stopMAS() :- 
+%% string() :- 
+%% structure() :- 
+%% sublist() :- 
+%% substring() :- 
+%% succeed_goal() :- 
+%% suffix() :- 
+%% suspended() :- 
+%% suspend() :- 
+%% term2string() :- 
+%% time() :- 
+%% type() :- 
+%% union() :- 
+%% upper_case() :- 
+%% verbose() :- 
+%% version() :- 
+%% wait() :- 
+
+%% map/clear() :- 
+%% map/create() :- 
+%% map/get() :- 
+%% map/key() :- 
+%% map/put() :- 
+%% map/remove() :- 
+%% map/value() :- 
+
+%% queue/add_all() :- 
+%% queue/add() :- 
+%% queue/clear() :- 
+%% queue/create() :- 
+%% queue/head() :- 
+%% queue/remove() :- 
+%% queue/to_list() :- 
+
+%% set/add_all() :- 
+%% set/add() :- 
+%% set/clear() :- 
+%% set/create() :- 
+%% set/difference() :- 
+%% set/intersection() :- 
+%% set/remove() :- 
+%% set/to_list() :- 
+%% set/union() :- 
+
+%% %% abolish(Belief) :-
+%% %% add_annot(Belief,Annotation,AnnotatedBeliefs) :-
+%% %% at(When,Event) :-
+%% %% count(Belief,Quantity) :-
+%% %% create_agent(Name,Source,Customizations) :-
+%% %% date(Y,Mo,D) :-
+%% %% fail :-
+%% %% findall(Term,Query,Result) :-
+%% %% kill_agent(Name) :-
+%% %% perceive :-
+%% %% random(Value) :-
+%% %% stopMAS :-
+%% %% time(H,Mi,S) :-
+%% %% wait(Event,Timeout) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
